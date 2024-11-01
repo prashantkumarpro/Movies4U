@@ -1,9 +1,11 @@
-import { Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './Components/Header/Header'
 import { fetchData } from './Components/data'
 import { Outlet } from 'react-router-dom'
 import { dataContext } from './context'
 import Spiner from './Components/Spinar'
+import CardSkeleton from './Components/SkeletonLoader/CardSkeleton'
+// import CardSkeleton from './Components/SkeletonLoader/CardSkeleton'
 
 
 function App() {
@@ -26,17 +28,25 @@ function App() {
     getData()
   }, [])
 
-  if (loading) return < Spiner />
-  if (error) return <p className='center text-1'>Error: {error.message}</p>;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup the timer when the component unmounts
+    return () => clearTimeout(timer);
+
+  }, [])
+
+  if (loading) return < CardSkeleton />
+  if (error) return < CardSkeleton />
 
   return (
     <dataContext.Provider value={{ data }}>
       <Header />
-      <Suspense fallback={<Spiner />}>
-        <main>
-          <Outlet />
-        </main>
-      </Suspense>
+      <main>
+        <Outlet />
+      </main>
     </dataContext.Provider>
   )
 }

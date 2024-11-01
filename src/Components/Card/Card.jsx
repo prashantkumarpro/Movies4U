@@ -1,10 +1,7 @@
-import {useContext } from "react"
+import { useContext } from "react"
 import { dataContext } from "../../context"
 import { useNavigate } from "react-router-dom";
 import { RiPlayLargeFill } from "@remixicon/react";
- 
-
-
 
 
 function Card() {
@@ -18,6 +15,7 @@ function Card() {
         navigate(`/Video/${videoId}`)
     }
 
+   
 
     return (
         <div className='card_container flex items-center justify-start flex-wrap gap-5 m-auto'>
@@ -39,7 +37,6 @@ function Card() {
                         />
                     </div>
                     <div className='p-2 mt-1 border-solid border-[1.2px] border-slate-300 text-center'>
-                        <p></p>
                         <p>{`${title.length > 10 ? title.substring(0, 18) + '...' : title}`}</p>
 
                     </div>

@@ -13,11 +13,10 @@ import BrowseAll from './Components/BrowseAll/BrowseAll.jsx';
 import { Result } from './Components/Result.jsx';
 import Search from './Components/Search.jsx';
 import Video from './Components/Video.jsx';
+import Home from './Components/Home/Home.jsx';
+import Tech from './Components/Tech.jsx'
+import Tranding from './Components/Tranding/Tranding.jsx'
 
-
-const LazyHome = lazy(() => delayForDemo(import('./Components/Home/Home.jsx')))
-const Tranding = lazy(() => delayForDemo(import('./Components/Tranding/Tranding.jsx')))
-const Tech = lazy(() => delayForDemo(import('./Components/Tech.jsx')))
 
 
 
@@ -29,11 +28,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LazyHome />
+        element: <Home />
       },
       {
         path: "/tranding",
-        element: <Tranding />
+        element: < Tranding />
       },
       {
         path: "/browseall",
@@ -62,11 +61,7 @@ const router = createBrowserRouter([
 
 ])
 
-function delayForDemo(promise) {
-  return new Promise(resolve => {
-    setTimeout(resolve, 2000);
-  }).then(() => promise);
-}
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

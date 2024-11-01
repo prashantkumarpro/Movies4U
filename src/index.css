@@ -102,6 +102,40 @@ main {
     display: none;
 }
 
+.skeleton-img {
+    background: linear-gradient(90deg, rgba(200, 200, 200, 0.1) 25%, rgba(200, 200, 200, 0.5) 50%, rgba(200, 200, 200, 0.1) 75%);
+    height: 280px;
+    /* Adjust height as needed */
+    margin: 2px 0;
+    /* Spacing between lines */
+    border-radius: 5px;
+    /* Rounded corners */
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-line {
+    background: linear-gradient(90deg, rgba(200, 200, 200, 0.1) 25%, rgba(200, 200, 200, 0.5) 50%, rgba(200, 200, 200, 0.1) 75%);
+    height: 10px;
+    /* Adjust height as needed */
+    margin: 5px 0;
+    /* Spacing between lines */
+    border-radius: 5px;
+    /* Rounded corners */
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+
+
 @media (max-width:1024px) {
     header {
         padding: 0 30px;
