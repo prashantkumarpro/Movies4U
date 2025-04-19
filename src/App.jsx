@@ -3,16 +3,13 @@ import Header from './Components/Header/Header'
 import { fetchData } from './Components/data'
 import { Outlet } from 'react-router-dom'
 import { dataContext } from './context'
-import Spiner from './Components/Spinar'
+// import Spiner from './Components/Spinar'
 import CardSkeleton from './Components/SkeletonLoader/CardSkeleton'
-// import CardSkeleton from './Components/SkeletonLoader/CardSkeleton'
 
-
-function App() {
+function App () {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
 
   useEffect(() => {
     const getData = async () => {
@@ -30,17 +27,22 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false); // Hide loader after 3 seconds
-    }, 3000);
+      setLoading(false) // Hide loader after 3 seconds
+    }, 3000)
 
     // Cleanup the timer when the component unmounts
-    return () => clearTimeout(timer);
-
+    return () => clearTimeout(timer)
   }, [])
 
-  if (loading) return < CardSkeleton />
-  if (error) return < CardSkeleton />
-
+  if (loading) return <CardSkeleton />
+  if (error)
+    return (
+      <div className='w-full h-screen flex items-center justify-center'>
+        <h1 className='text-3xl text-red-500 font-bold'>
+          Error: {error.message}
+        </h1>
+      </div>
+    )
   return (
     <dataContext.Provider value={{ data }}>
       <Header />
@@ -52,10 +54,3 @@ function App() {
 }
 
 export default App
-
-
-
-
-
-
-
