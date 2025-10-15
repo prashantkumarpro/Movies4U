@@ -52,7 +52,7 @@ const Header = () => {
 
 
     return (
-        <header className={`${isDark ? 'header_dark' : ''} w-full h-20 bg-white  text-gray-600 flex items-center justify-between gap-10 fixed top-0 left-0 z-50`}>
+        <header className={`${isDark ? 'header_dark' : ''} w-full h-20 bg-white  text-gray-600 flex items-center justify-between gap-6 fixed top-0 left-0 z-50`}>
             <div className="left_part flex items-center gap-3  ">
                 <div
                     className={`menu_btn ${isMenuOpen ? 'hidden' : 'block'}`}

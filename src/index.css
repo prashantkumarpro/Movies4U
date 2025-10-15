@@ -26,6 +26,7 @@ main {
 }
 
 main {
+    width: 100%;
     margin-top: 85px;
     height: 100vh;
 }
@@ -179,8 +180,8 @@ main {
         left: 0;
         top: 0;
         padding-top: 30px;
-        background-color: black;
-        color: white;
+        background-color: white;
+        color: black;
         transition: width .3s ease-in;
 
     }
@@ -210,6 +211,9 @@ main {
 
 @media (max-width:600px) {
 
+    header {
+        padding: 0 12px;
+    }
     main {
         padding: 0 10px;
     }
@@ -222,14 +226,7 @@ main {
         display: block;
     }
 
-    .card_container {
-        width: 100%;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
+  
     .card {
         width: 450px;
         height: 380px;
